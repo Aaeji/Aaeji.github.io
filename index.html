@@ -1531,6 +1531,137 @@ body::before {
   max-height: 420px;
 }
 
+
+/* ========================================================
+   ANIMATED CYBER TECH TICKER & MATRIX MOTION BACKGROUND
+   ======================================================== */
+.tech-cyber-strip {
+  position: relative;
+  overflow: hidden;
+  padding: 16px 0;
+  background: #03070d;
+  border-block: 1px solid rgba(0, 242, 254, 0.28);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.08), inset 0 0 20px rgba(0, 0, 0, 0.8);
+  margin-block: 18px 24px;
+}
+
+/* Animated futuristic moving grid pattern background */
+.tech-cyber-strip .cyber-strip-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(0, 242, 254, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 242, 254, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  animation: cyberGridMove 12s linear infinite;
+  opacity: 0.75;
+}
+
+@keyframes cyberGridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 28px;
+  }
+}
+
+/* Horizontal cyber glow scanline beam passing by */
+.tech-cyber-strip .cyber-scanline {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.18), transparent);
+  animation: cyberScan 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes cyberScan {
+  0% { left: -150px; opacity: 0; }
+  50% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Dual-sided soft gradient fade mask for smooth seamless ticker loop */
+.marquee-track-wrapper {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  z-index: 3;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 16px;
+  padding-right: 16px;
+  will-change: transform;
+  animation: techMarqueeScroll 28s linear infinite;
+}
+
+.tech-cyber-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes techMarqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Glowing tech badge chips */
+.tech-ticker-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px;
+  background: rgba(8, 14, 24, 0.82);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: 999px;
+  font-family: var(--mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #d1f7ff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+}
+
+.tech-ticker-pill:hover {
+  color: #00f2fe;
+  border-color: #00f2fe;
+  background: rgba(0, 242, 254, 0.12);
+  box-shadow: 0 0 18px rgba(0, 242, 254, 0.45);
+  transform: translateY(-2px);
+}
+
+.ticker-dot {
+  width: 6px;
+  height: 6px;
+  background: #00f2fe;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00f2fe, 0 0 12px #00f2fe;
+  animation: tickerDotPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes tickerDotPulse {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+
 </style>
 </head>
 <body id="top">
@@ -1685,7 +1816,23 @@ body::before {
   </div>
 </div>
 </section>
-<div class="tool-strip" aria-label="Selected tools"><div class="container"><span>C#</span><i aria-hidden="true"></i><span>Unity</span><i aria-hidden="true"></i><span>Android Studio</span><i aria-hidden="true"></i><span>HTML</span><i aria-hidden="true"></i><span>CSS</span><i aria-hidden="true"></i><span>Blender</span></div></div>
+
+<!-- TECH MARQUEE WITH ANIMATED CYBER GRID BACKGROUND -->
+<div class="tech-cyber-strip" aria-label="Core Technology Arsenal">
+  <div class="cyber-strip-ambient"></div>
+  <div class="cyber-scanline"></div>
+  <div class="marquee-track-wrapper">
+    <div class="marquee-track">
+      <span class="tech-ticker-pill"><span class="ticker-dot"></span>⚡ C#</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎮 UNITY 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>📱 ANDROID STUDIO</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🌐 HTML5 & MODERN CSS</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎨 BLENDER 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🗄️ SQL & SUPABASE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐍 PYTHON (BASIC)</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐙 GIT & GITHUB</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>💻 VISUAL STUDIO CODE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🛠️ CCTV NETWORKING</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🚀 RESPONSIVE UI</span>
+      <span class="tech-ticker-pill"><span class="ticker-dot"></span>⚡ C#</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎮 UNITY 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>📱 ANDROID STUDIO</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🌐 HTML5 & MODERN CSS</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎨 BLENDER 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🗄️ SQL & SUPABASE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐍 PYTHON (BASIC)</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐙 GIT & GITHUB</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>💻 VISUAL STUDIO CODE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🛠️ CCTV NETWORKING</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🚀 RESPONSIVE UI</span>
+    </div>
+    <div class="marquee-track" aria-hidden="true">
+      <span class="tech-ticker-pill"><span class="ticker-dot"></span>⚡ C#</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎮 UNITY 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>📱 ANDROID STUDIO</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🌐 HTML5 & MODERN CSS</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎨 BLENDER 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🗄️ SQL & SUPABASE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐍 PYTHON (BASIC)</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐙 GIT & GITHUB</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>💻 VISUAL STUDIO CODE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🛠️ CCTV NETWORKING</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🚀 RESPONSIVE UI</span>
+      <span class="tech-ticker-pill"><span class="ticker-dot"></span>⚡ C#</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎮 UNITY 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>📱 ANDROID STUDIO</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🌐 HTML5 & MODERN CSS</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🎨 BLENDER 3D</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🗄️ SQL & SUPABASE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐍 PYTHON (BASIC)</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🐙 GIT & GITHUB</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>💻 VISUAL STUDIO CODE</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🛠️ CCTV NETWORKING</span><span class="tech-ticker-pill"><span class="ticker-dot"></span>🚀 RESPONSIVE UI</span>
+    </div>
+  </div>
+</div>
+
 <section class="section" id="work" aria-labelledby="work-title"><div class="container">
 <div class="section-heading"><div><div class="eyebrow"><b>02 /</b>Selected work</div><h2 id="work-title">Different platforms.<br><span class="accent">Thoughtful interfaces.</span></h2></div><p>Six projects across desktop, mobile, web, games, and 3D — including Scholaria, the e-learning portal I’m currently working on.</p></div>
 <div class="filters" role="group" aria-label="Filter projects by category"><button class="filter" data-filter="all" aria-pressed="true" type="button">All <span>06</span></button><button class="filter" data-filter="desktop" aria-pressed="false" type="button">Desktop</button><button class="filter" data-filter="mobile" aria-pressed="false" type="button">Mobile</button><button class="filter" data-filter="web" aria-pressed="false" type="button">Web</button><button class="filter" data-filter="game" aria-pressed="false" type="button">Game</button><button class="filter" data-filter="3d" aria-pressed="false" type="button">3D Modeling</button></div><p id="filter-status" class="sr-only" role="status" aria-live="polite">Showing all 6 projects.</p>
