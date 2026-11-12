@@ -1501,6 +1501,36 @@ body::before {
   }
 }
 
+
+/* USER REQUEST: Stack hero sections vertically so the right side (preview) is below the left side (profile/intro) */
+.hero-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 28px !important;
+}
+
+.hero-copy {
+  width: 100% !important;
+}
+
+.hero-art {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.hero-art .showcase {
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.hero-preview-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+  max-height: 420px;
+}
+
 </style>
 </head>
 <body id="top">
