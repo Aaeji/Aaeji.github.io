@@ -1396,6 +1396,111 @@ body::before {
   flex-shrink: 0;
 }
 
+
+/* HR & RECRUITER INFO GRID (ABOVE & BELOW) */
+.hr-info-deck {
+  background: rgba(14, 22, 36, 0.85);
+  border: 1px solid rgba(0, 242, 254, 0.22);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-block: 22px;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.hr-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 20px;
+}
+
+.hr-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--mono);
+}
+
+.hr-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hr-label svg {
+  width: 12px;
+  height: 12px;
+  color: var(--accent);
+}
+
+.hr-value {
+  font-size: 13px;
+  color: #f0f6fc;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.hr-value a {
+  color: #f0f6fc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.hr-value a:hover {
+  color: var(--accent);
+}
+
+.hr-full-summary-box {
+  background: rgba(10, 16, 27, 0.9);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  border-radius: 16px;
+  padding: 26px 28px;
+  margin-top: 32px;
+  font-family: var(--mono);
+}
+
+.hr-summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hr-summary-title {
+  font-family: 'Oxanium', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hr-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 900px) {
+  .hr-info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .hr-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 </style>
 </head>
 <body id="top">
@@ -1458,15 +1563,35 @@ body::before {
         </p>
 
         <!-- QUICK CONTACT HUD STRIP -->
-        <div class="hero-contact-strip">
-          <span><svg class="arrow" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;"><use href="#icon-location"/></svg> Cavite, PH</span>
-          <span class="sep">/</span>
-          <a href="tel:09499155298" title="Call or SMS"><svg class="arrow" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;"><use href="#icon-phone"/></svg> 09499155298</a>
-          <span class="sep">/</span>
-          <a href="mailto:josephandrewasis@gmail.com" title="Direct Email"><svg class="arrow" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;"><use href="#icon-mail"/></svg> Email</a>
-          <span class="sep">/</span>
-          <a href="https://github.com/Aaeji" target="_blank" rel="noopener noreferrer" title="GitHub Profile"><svg class="arrow" aria-hidden="true" style="width:13px;height:13px;vertical-align:-2px;"><use href="#github"/></svg> @Aaeji</a>
-        </div>
+        <!-- HR & RECRUITER FAST FACTS (WORDS IN FULL) -->
+<div class="hr-info-deck">
+  <div class="hr-info-grid">
+    <div class="hr-info-item">
+      <span class="hr-label"><svg aria-hidden="true"><use href="#icon-mail"/></svg> EMAIL ADDRESS</span>
+      <span class="hr-value"><a href="mailto:josephandrewasis@gmail.com">josephandrewasis@gmail.com</a></span>
+    </div>
+    <div class="hr-info-item">
+      <span class="hr-label"><svg aria-hidden="true"><use href="#icon-phone"/></svg> PHONE / MOBILE</span>
+      <span class="hr-value"><a href="tel:09499155298">09499155298</a> (+63 949 915 5298)</span>
+    </div>
+    <div class="hr-info-item">
+      <span class="hr-label"><svg aria-hidden="true"><use href="#icon-location"/></svg> CURRENT LOCATION</span>
+      <span class="hr-value">General Trias City, Cavite, Philippines</span>
+    </div>
+    <div class="hr-info-item">
+      <span class="hr-label"><svg aria-hidden="true"><use href="#github"/></svg> GITHUB PORTFOLIO</span>
+      <span class="hr-value"><a href="https://github.com/Aaeji" target="_blank" rel="noopener noreferrer">github.com/Aaeji</a></span>
+    </div>
+    <div class="hr-info-item">
+      <span class="hr-label"><svg aria-hidden="true"><use href="#icon-web"/></svg> DEGREE & SCHOOL</span>
+      <span class="hr-value">4th-Year BSIT · STI College Dasmariñas (Expected 2027)</span>
+    </div>
+    <div class="hr-info-item">
+      <span class="hr-label"><span class="status-dot"></span> AVAILABILITY / OBJECTIVE</span>
+      <span class="hr-value" style="color:var(--neon-green);">Seeking OJT Internship (Front-End / 3D / IT MIS)</span>
+    </div>
+  </div>
+</div>
       </div>
 
       <div class="hero-ctas">
@@ -1795,13 +1920,63 @@ body::before {
     <div id="copy-status" role="status" aria-live="polite" style="margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--neon-green);min-height:18px;"></div>
 
     <!-- FOOTER TERMINAL BAR -->
+    <!-- HR & EMPLOYER COMPLETE DOSSIER (WORDS IN FULL) -->
+    <div class="hr-full-summary-box">
+      <div class="hr-summary-header">
+        <div class="hr-summary-title">
+          <span class="status-dot"></span> HR & Employer Candidate Summary
+        </div>
+        <span style="font-size:10px;color:var(--accent);letter-spacing:0.12em;">DOC.REF // JOSEPH_ANDREW_ASIS_2026</span>
+      </div>
+
+      <div class="hr-summary-grid">
+        <div class="hr-info-item">
+          <span class="hr-label">Full Candidate Name</span>
+          <span class="hr-value" style="font-size:15px;font-weight:700;color:#fff;">Joseph Andrew R. Asis</span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Target Position</span>
+          <span class="hr-value" style="color:var(--neon-green);">OJT Intern · Front-End Development · 3D Modeling · IT Support</span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Education Status</span>
+          <span class="hr-value">BS Information Technology (4th Year), STI College Dasmariñas</span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Direct Contact Line</span>
+          <span class="hr-value"><strong>09499155298</strong> / +63 949 915 5298</span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Email Inbox</span>
+          <span class="hr-value"><strong>josephandrewasis@gmail.com</strong></span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Location & Relocation</span>
+          <span class="hr-value">General Trias, Cavite (Open to Cavite, Alabang, Metro Manila & Remote)</span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Code Repositories</span>
+          <span class="hr-value"><a href="https://github.com/Aaeji" target="_blank" rel="noopener noreferrer">https://github.com/Aaeji</a></span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Verified Certifications</span>
+          <span class="hr-value">Oracle Java Fundamentals (2024) · SAP S/4HANA (2025)</span>
+        </div>
+        <div class="hr-info-item">
+          <span class="hr-label">Major Achievements</span>
+          <span class="hr-value">🏆 1st Place Software Pitch, ICS Day 2025 (AutoForge Platform)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATUS FOOTER BAR -->
     <div class="contact-footer-bar">
       <div>
-        <span class="live-status"><span class="status-dot"></span> OPEN FOR INTERNSHIP / OJT</span>
+        <span class="live-status"><span class="status-dot"></span> OPEN FOR OJT INTERNSHIP / IMMEDIATE DISPATCH</span>
         <span style="margin-left:14px;color:var(--muted);">General Trias City, Cavite, Philippines</span>
       </div>
       <div>
-        <span>STI College Dasmariñas · BS Information Technology</span>
+        <span>STI College Dasmariñas · BSIT Class of 2027</span>
       </div>
     </div>
   </div>
