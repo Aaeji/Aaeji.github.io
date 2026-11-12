@@ -1781,6 +1781,11 @@ body {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 242, 254, 0.08) !important;
 }
 
+
+.dialog-gallery figcaption {
+  display: none !important;
+}
+
 </style>
 </head>
 <body id="top">
@@ -2307,7 +2312,7 @@ document.querySelectorAll('[data-project]').forEach(button=>button.addEventListe
   (project.metadata || [['My contribution',project.role],['Tools / technology',project.tools]]).forEach(([label,value])=>{const item=document.createElement('div');item.append(textElement('dt',label),textElement('dd',value));metadata.append(item);});
   content.append(metadata,textElement('p',project.description));if(project.note)content.append(textElement('p',project.note));
   const gallery=document.createElement('div');gallery.className=`dialog-gallery${key==='debttrack'?' mobile':''}`;
-  document.querySelectorAll(`#project-${key} .project-visual img`).forEach((source,index)=>{const figure=document.createElement('figure');const image=source.cloneNode();image.removeAttribute('loading');figure.append(image,textElement('figcaption',project.captions[index]));gallery.append(figure);});
+  document.querySelectorAll(`#project-${key} .project-visual img`).forEach((source,index)=>{const figure=document.createElement('figure');const image=source.cloneNode();image.removeAttribute('loading');figure.append(image);gallery.append(figure);});
   content.append(gallery);openDialog(button);
 }));
 document.querySelectorAll('[data-credential]').forEach(button=>button.addEventListener('click',()=>{
