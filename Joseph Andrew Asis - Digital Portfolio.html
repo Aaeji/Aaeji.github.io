@@ -2308,7 +2308,7 @@ document.querySelectorAll('[data-project]').forEach(button=>button.addEventListe
   content.append(metadata,textElement('p',project.description));if(project.note)content.append(textElement('p',project.note));
   const gallery=document.createElement('div');gallery.className=`dialog-gallery${key==='debttrack'?' mobile':''}`;
   document.querySelectorAll(`#project-${key} .project-visual img`).forEach((source,index)=>{const figure=document.createElement('figure');const image=source.cloneNode();image.removeAttribute('loading');figure.append(image,textElement('figcaption',project.captions[index]));gallery.append(figure);});
-  content.append(gallery,textElement('p','Project screenshots are shown for portfolio presentation; this is not a live application demo.','dialog-note'));openDialog(button);
+  content.append(gallery);openDialog(button);
 }));
 document.querySelectorAll('[data-credential]').forEach(button=>button.addEventListener('click',()=>{
   const key = button.dataset.credential;
